@@ -12,12 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id();
+            //Error al generar la llave primaria de id eliminando esta liena peujecutar la linea de $table->prymari
+            // $table->id();
             $table->string('url', 75);
             $table->unsignedBigInteger('imageable_id');
             $table->string('imageable_type');
-            $table->primary(['imageable_id', 'imageable_type']);
             $table->timestamps();
+            $table->primary(['imageable_id', 'imageable_type']);
         });
     }
 
