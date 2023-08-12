@@ -11,4 +11,12 @@ class Author extends Model
 
     protected $table = 'authors';
     protected $fillable = ['full_name', 'birth_date', 'country'];
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
+    }
+
+    public function author(){
+        return $this->belongsTo(Author::class);
+    }
 }
