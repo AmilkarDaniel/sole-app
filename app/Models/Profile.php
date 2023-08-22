@@ -11,4 +11,8 @@ class Profile extends Model
 
     protected $table = 'profiles';
     protected $fillable = ['career', 'biography', 'website', 'email'];
+
+    public function author(){
+        return $this->belongsTo(Author::class);
+    }
 }

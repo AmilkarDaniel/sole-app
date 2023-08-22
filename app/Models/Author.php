@@ -16,7 +16,19 @@ class Author extends Model
         return $this->hasOne(Profile::class);
     }
 
-    public function author(){
-        return $this->belongsTo(Author::class);
+    public function books(){
+        return $this->belongsToMany(Book::class);
+    }
+
+    public function image(){
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function note(){
+        return $this->morphMany(Note::class, 'noteable');
+    }
+
+    public function users(){
+        return $this->morphToMany(User::class, 'userable');
     }
 }
